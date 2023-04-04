@@ -33,21 +33,7 @@ paths:
      x-filter:
        type: RHS-Colon
 
-  /products/{productId}:
-    get:
-      operationId: GetProductDetails
-      parameters: 
-        - in: path
-          name: productId
-          type: string
-          required: true
-      responses:
-        '200':
-          description: A successful response.
-          schema:
-            $ref: '#/definitions/hipstershopProduct'
-      tags:
-        - ProductCatalogService
+ 
 definitions:
   hipstershopListProductsResponse:
     type: object

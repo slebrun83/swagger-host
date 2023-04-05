@@ -22,11 +22,6 @@ paths:
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  events:
-                    type: array
-                    items:
                       $ref: '#/components/schemas/ListOfEvents'
 
     post:
@@ -140,10 +135,12 @@ components:
           type: string
           example: 1ya6aBJgHXpkxH-gjFvVpM1AS6QIryjZMmT9_DTagRB8
     ListOfEvents:
-      title: List of Events objects
-      type: array
-      items:
-        $ref: '#/components/schemas/Event'
+      type: object
+      properties:
+        asset:
+          type: array
+          items:
+            $ref: '#/components/schemas/Event'
 
   securitySchemes:
     ApiKeyAuth:

@@ -3,9 +3,7 @@ info:
   title: AppSheet Calendar
   version: "1"
   description: Demo Products API for Hipster Application
-host: 34.107.178.221.nip.io
-schemes:
-  - https
+basePath: https://34.107.178.221.nip.io
 securityDefinitions:
   ApiKeyAuth:
     type: "apiKey"

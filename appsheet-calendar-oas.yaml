@@ -103,6 +103,10 @@ components:
           description: The _id of the Event
           type: string
           example: 0fml87qma068pjam62qvith0pj
+        user:
+          description: The identity of the APpSheet User (to access his calendar)
+          type: string
+          example: slebrun@google.com
         status:
           description: The status of the Event
           type: string

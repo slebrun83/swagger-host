@@ -30,7 +30,7 @@ paths:
 
 components:
   schemas:
-    Formfield:
+    Event:
       title: Event
       type: object
       properties:

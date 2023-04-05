@@ -11,8 +11,11 @@ security:
 paths:
   /events:
     get:
+      tags:
+        - event
       summary: List 'Calendar Events' objects.
       description: List specific events from Google Calendar API with flat format (no nested fields)
+      parameters:
       responses:
         "200":
           description: Successful response
@@ -25,6 +28,72 @@ paths:
                     type: array
                     items:
                       $ref: '#/components/schemas/ListOfEvents’
+
+    post:
+      tags:
+        - event
+      summary: Insert an event 
+      requestBody:
+        description: Event to be created
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Event'
+      responses:
+        '200':
+          description: OK
+        '400':
+          description: Invalid asset supplied
+
+ '/events/{id}':
+    parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+        required: true
+        description: The event id
+    get:
+      tags:
+        - event
+      summary: Get an event by id
+      responses:
+        '200':
+          description: event retrieved
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Event'
+        '404':
+          description: Event not found
+    put:
+      tags:
+        - event
+      summary: Update an event by id
+      requestBody:
+        description: event to be created
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/event'
+      responses:
+        '200':
+          description: Event retrieved
+        '400':
+          description: Invalid event supplied
+        '404':
+          description: Event not found 
+    delete:
+      tags:
+        - event
+      summary: Delete the event by id
+      responses:
+        '200':
+          description: OK
+        '404':
+          description: Event not found
 
 
 

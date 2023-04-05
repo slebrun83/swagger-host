@@ -30,7 +30,7 @@ paths:
             $ref: '#/definitions/hipstershopListProductsResponse'
       tags:
         - ProductCatalogService
-     x-filter:
+      x-filter:
        type: RHS-Colon
 
  

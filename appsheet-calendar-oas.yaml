@@ -5,7 +5,7 @@ info:
   description: Demo Products API for Hipster Application
 host: 34.107.178.221.nip.io
 basePath:
-  /products
+  /
 schemes:
   - https
 securityDefinitions:

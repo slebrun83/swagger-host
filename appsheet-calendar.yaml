@@ -19,6 +19,4 @@ paths:
           description: A successful response.
       tags:
         - ProductCatalogService
-      x-filter:
-       type: RHS-Colon
 

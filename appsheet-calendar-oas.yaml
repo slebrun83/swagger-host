@@ -15,7 +15,6 @@ paths:
         - event
       summary: List 'Calendar Events' objects.
       description: List specific events from Google Calendar API with flat format (no nested fields)
-      parameters:
       responses:
         "200":
           description: Successful response

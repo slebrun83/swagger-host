@@ -1,85 +1,84 @@
-openapi: 3.0.2
+openapi: 3.0.3
 info:
+  description: Calendar API for AppSheet.
+  version: 0.0.1
   title: AppSheet Calendar
-  version: "1"
-  description: Demo Products API for Hipster Application
 servers:
   - url: 'https://34.107.178.221.nip.io'
 security:
   - ApiKeyAuth: []
 
 paths:
-  /products:
+  /events:
     get:
-      tags:
-        - products
-      summary: List all Products
+      summary: List 'Calendar Events' objects.
+      description: List specific events from Google Calendar API with flat format (no nested fields)
+      parameters:
       responses:
-        '200':
-          description: Products list retrieved.
+        "200":
+          description: Successful response
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/hipstershopListProductsResponse'
+                type: object
+                properties:
+                  events:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/ListOfEvents’
+
 
 
 components:
   schemas:
-    hipstershopListProductsResponse:
-      type: object
-      properties:
-        products:
-          type: array
-          items:
-            $ref: '#/components/hipstershopProduct'
-    hipstershopMoney:
-      type: object
-      properties:
-        currency_code:
-          type: string
-          description: The 3-letter currency code defined in ISO 4217.
-        units:
-          type: string
-          format: int64
-          description: |-
-            The whole units of the amount.
-            For example if `currencyCode` is `"USD"`, then 1 unit is one US dollar.
-        nanos:
-          type: integer
-          format: int32
-          description: |-
-            Number of nano (10^-9) units of the amount.
-            The value must be between -999,999,999 and +999,999,999 inclusive.
-            If `units` is positive, `nanos` must be positive or zero.
-            If `units` is zero, `nanos` can be positive, zero, or negative.
-            If `units` is negative, `nanos` must be negative or zero.
-            For example $-1.75 is represented as `units`=-1 and `nanos`=-750,000,000.
-      description: Represents an amount of money with its currency type.
-    hipstershopProduct:
+    Formfield:
+      title: Event
       type: object
       properties:
         id:
+          description: The _id of the Event
           type: string
-        name:
+          example: 0fml87qma068pjam62qvith0pj
+        status:
+          description: The status of the Event
           type: string
-        description:
+          example: confirmed
+        htmlLink:
+          description: The htmlLink of the Event
           type: string
-        picture:
+          example: https://www.google.com/calendar/event?eid=MGZtbDg3cW1hMDY4cGphbTYycXZpdGgwcGogYXBpbG92ZXJAbGVicnVuLnNwYWNl
+        organizer:
+          description: The email of the Event organizer
           type: string
-        price_usd:
-          $ref: '#/components/hipstershopMoney'
-        categories:
-          type: array
-          items:
-            type: string
-          description: |-
-            Categories such as "vintage" or "gardening" that can be used to look up
-            other related products.
+          example: apilover@lebrun.space
+        eventType:
+          description: The eventType of the Event
+          type: string
+          example: default
+        startDateTime:
+          description: The startDateTime of the Event
+          type: string
+          example: 2023-04-05T11:15:00+02:00
+        endDateTime:
+          description: The endDateTime of the Event
+          type: string
+          example: 2023-04-05T13:00:00+02:00
+        NotesFileURL:
+          description: The NotesFileURL of the Event
+          type: string
+          example: https://docs.google.com/document/d/1ya6aBJgHXpkxH-gjFvVpM1AS6QIryjZMmT9_DTagRB8/edit
+        NotesFileId:
+          description: The eventType of the Event
+          type: string
+          example: 1ya6aBJgHXpkxH-gjFvVpM1AS6QIryjZMmT9_DTagRB8
+    ListOfEvents:
+      title: List of Events objects
+      type: array
+      items:
+        $ref: '#/components/schemas/Event’
 
   securitySchemes:
     ApiKeyAuth:
       type: apiKey
       in: header
       name: x-apikey
-    
-

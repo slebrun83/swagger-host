@@ -46,7 +46,7 @@ paths:
         '400':
           description: Invalid asset supplied
 
- '/events/{id}':
+  /events/{id}:
     parameters:
       - in: path
         name: id

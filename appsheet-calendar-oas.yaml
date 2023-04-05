@@ -12,8 +12,6 @@ paths:
       responses:
         '200':
           description: A successful response.
-          schema:
-            $ref: '#/definitions/hipstershopListProductsResponse'
       tags:
         - ProductCatalogService
      x-filter:

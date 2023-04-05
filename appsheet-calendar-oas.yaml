@@ -1,28 +1,29 @@
-openapi: "3.0.0"
+openapi: 3.0.2
 info:
   title: AppSheet Calendar
   version: "1"
   description: Demo Products API for Hipster Application
 servers:
-  - url: https://34.107.178.221.nip.io
+  - url: 'https://34.107.178.221.nip.io'
+security:
+  - ApiKeyAuth: []
+
 paths:
   /products:
     get:
-      operationId: GetProducts
+      tags:
+        - products
+      summary: List all Products
       responses:
         '200':
-          description: A successful response.
-      tags:
-        - ProductCatalogService
-     x-filter:
-       type: RHS-Colon
-       
-security:
-  - ApiKeyAuth: []
+          description: Products list retrieved.
+
+
 components:
   securitySchemes:
     ApiKeyAuth:
       type: apiKey
       in: header
-      name: X-APIKey
+      name: x-apikey
     
+

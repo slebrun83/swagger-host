@@ -20,7 +20,6 @@ produces:
 paths:
   /products:
     get:
-      operationId: GetProducts
       responses:
         '200':
           description: A successful response.

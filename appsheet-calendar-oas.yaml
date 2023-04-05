@@ -139,6 +139,10 @@ components:
           description: The eventType of the Event
           type: string
           example: 1ya6aBJgHXpkxH-gjFvVpM1AS6QIryjZMmT9_DTagRB8
+        Description:
+          description: The description of the Event
+          type: string
+          example: This is my event
     ListOfEvents:
       type: object
       properties:

@@ -27,7 +27,7 @@ paths:
                   events:
                     type: array
                     items:
-                      $ref: '#/components/schemas/ListOfEvents’
+                      $ref: '#/components/schemas/ListOfEvents'
 
     post:
       tags:
